@@ -1,10 +1,73 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Заголовок страницы</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fit Puls - Home</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  Содержимое страницы.
+    <div class="container">
+        <!-- Верхняя панель -->
+        <div class="top-bar">
+            <div class="training-status">
+                <span id="available-trainings">3/3</span>
+            </div>
+            <div class="boost">
+                <button id="boost-button" onclick="window.location.href='earn.html'">BOOST</button>
+            </div>
+        </div>
+
+        <!-- Цитата дня -->
+        <div class="quote-of-the-day">
+            <p>"Every workout is a step towards a better version of yourself!"</p>
+        </div>
+
+        <!-- Основной блок с логотипом и количеством тренировок -->
+        <div class="main-statistics">
+            <div class="circle-container">
+                <div class="circle">
+                    <p id="total-trainings">0</p>
+                </div>
+            </div>
+            <p class="encryption-info">FitPulse is your source of inspiration and energy on your way to being healthy and in great shape! 💪</p>
+        </div>
+
+        <!-- Прогресс уровня -->
+        <div class="level-progress">
+            <span>LVL 1</span>
+            <div class="progress-bar">
+                <div class="progress" style="width: 25%;"></div>
+            </div>
+            <span>LVL 2</span>
+        </div>
+    </div>
+
+    <!-- Нижняя навигация -->
+    <div class="bottom-navigation">
+        <button class="nav-button" id="home-button" onclick="window.location.href='index.html'">
+            <img src="icons/home-icon.svg" alt="Home">
+            <span>Home</span>
+        </button>
+        <button class="nav-button" id="training-button" onclick="window.location.href='training.html'">
+            <img src="icons/training-icon.svg" alt="Training">
+            <span>Training</span>
+        </button>
+        <button class="nav-button" id="earn-button" onclick="window.location.href='earn.html'">
+            <img src="icons/earn-icon.svg" alt="Earn">
+            <span>Earn</span>
+        </button>
+        <button class="nav-button" id="profile-button" onclick="window.location.href='profile.html'">
+            <img src="icons/profile-icon.svg" alt="Profile">
+            <span>Profile</span>
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
 </body>
 </html>
