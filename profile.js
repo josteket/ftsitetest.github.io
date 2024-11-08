@@ -12,15 +12,16 @@ function loadUserData() {
         const telegram = window.Telegram.WebApp;
         const user = telegram.initDataUnsafe.user;
 
-        // Отображение имени пользователя
+        // Проверка на наличие данных пользователя
         if (user) {
-            document.getElementById('user-name').textContent = user.username || `${user.first_name} ${user.last_name}`;
+            // Проверяем наличие username, и если его нет, используем first_name и last_name
+            const displayName = user.username || `${user.first_name || ''} ${user.last_name || ''}`.trim();
+            document.getElementById('user-name').textContent = displayName || "Unknown User";
         } else {
             document.getElementById('user-name').textContent = "Unknown User";
         }
     }
 }
-
 // Функция обновления статистики профиля
 function updateProfileStats() {
     const workoutStats = JSON.parse(localStorage.getItem('workoutStats')) || {
