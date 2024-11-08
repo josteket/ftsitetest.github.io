@@ -12,16 +12,25 @@ function loadUserData() {
         const telegram = window.Telegram.WebApp;
         const user = telegram.initDataUnsafe.user;
 
+        console.log("Telegram WebApp доступен:", telegram); // Отладочное сообщение
+        console.log("Данные пользователя:", user);          // Проверка, приходят ли данные пользователя
+
         // Проверка на наличие данных пользователя
         if (user) {
             // Проверяем наличие username, и если его нет, используем first_name и last_name
             const displayName = user.username || `${user.first_name || ''} ${user.last_name || ''}`.trim();
+            console.log("Отображаемое имя пользователя:", displayName); // Отладочное сообщение
             document.getElementById('user-name').textContent = displayName || "Unknown User";
         } else {
+            console.log("Данные пользователя не найдены");
             document.getElementById('user-name').textContent = "Unknown User";
         }
+    } else {
+        console.log("Telegram WebApp не доступен");
+        document.getElementById('user-name').textContent = "Not in Telegram";
     }
 }
+
 // Функция обновления статистики профиля
 function updateProfileStats() {
     const workoutStats = JSON.parse(localStorage.getItem('workoutStats')) || {
