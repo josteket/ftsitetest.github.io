@@ -208,3 +208,39 @@ body {
     color: #ffffff;
     font-weight: bold;
 }
+
+.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+/* Анимация пульсации для центрального кружка */
+@keyframes pulse {
+    0% {
+        transform: scale(1);       /* Начальный размер */
+        box-shadow: 0 0 15px rgba(50, 168, 82, 0.6);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.05);    /* Увеличение на 5% */
+        box-shadow: 0 0 25px rgba(50, 168, 82, 0.4);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1);       /* Возвращение к исходному размеру */
+        box-shadow: 0 0 15px rgba(50, 168, 82, 0.6);
+        opacity: 1;
+    }
+}
+
+.circle {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #32a852, #2e7d32); /* Зеленый градиент */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 20px rgba(50, 168, 82, 0.5);
+    animation: pulse 2s infinite ease-in-out; /* Добавление анимации пульсации */
+}
