@@ -8,23 +8,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Функция загрузки данных пользователя из Telegram Web App
 function loadUserData() {
+    // Проверка на наличие объекта Telegram WebApp
     if (typeof window.Telegram !== 'undefined' && window.Telegram.WebApp) {
         const telegram = window.Telegram.WebApp;
-        const user = telegram.initDataUnsafe.user;
+        const user = telegram.initDataUnsafe?.user;  // Безопасный доступ к данным пользователя
 
-        console.log("Telegram WebApp доступен:", telegram); // Отладочное сообщение
-        console.log("Данные пользователя:", user);          // Проверка, приходят ли данные пользователя
+        console.log("Telegram WebApp доступен:", telegram); // Проверка инициализации Telegram WebApp
+        console.log("Данные пользователя:", user);          // Проверка данных пользователя
 
         // Проверка на наличие данных пользователя
         if (user) {
             const displayName = user.username || `${user.first_name || ''} ${user.last_name || ''}`.trim();
-            console.log("Отображаемое имя пользователя:", displayName); // Отладочное сообщение
+            console.log("Отображаемое имя пользователя:", displayName); // Лог отображаемого имени
             document.getElementById('user-name').textContent = displayName || "Unknown User";
         } else {
             console.log("Данные пользователя не найдены");
             document.getElementById('user-name').textContent = "Unknown User";
         }
     } else {
+        // Если приложение не запущено в Telegram или WebApp не доступен
         console.log("Запуск вне Telegram или Telegram WebApp недоступен");
         document.getElementById('user-name').textContent = "Not in Telegram";
     }
