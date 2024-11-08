@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Функция загрузки данных пользователя из Telegram Web App
 function loadUserData() {
-    if (window.Telegram.WebApp) {
+    if (typeof window.Telegram !== 'undefined' && window.Telegram.WebApp) {
         const telegram = window.Telegram.WebApp;
         const user = telegram.initDataUnsafe.user;
 
@@ -17,7 +17,6 @@ function loadUserData() {
 
         // Проверка на наличие данных пользователя
         if (user) {
-            // Проверяем наличие username, и если его нет, используем first_name и last_name
             const displayName = user.username || `${user.first_name || ''} ${user.last_name || ''}`.trim();
             console.log("Отображаемое имя пользователя:", displayName); // Отладочное сообщение
             document.getElementById('user-name').textContent = displayName || "Unknown User";
@@ -26,7 +25,7 @@ function loadUserData() {
             document.getElementById('user-name').textContent = "Unknown User";
         }
     } else {
-        console.log("Telegram WebApp не доступен");
+        console.log("Запуск вне Telegram или Telegram WebApp недоступен");
         document.getElementById('user-name').textContent = "Not in Telegram";
     }
 }
