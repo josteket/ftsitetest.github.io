@@ -244,3 +244,16 @@ body {
     box-shadow: 0 0 20px rgba(50, 168, 82, 0.5);
     animation: pulse 2s infinite ease-in-out; /* Добавление анимации пульсации */
 }
+
+.profile-user-name {
+    font-size: 24px;
+    font-weight: bold;
+    color: #32a852; /* Зеленый цвет */
+    margin-top: 20px;
+}
+
+.profile-level {
+    font-size: 20px;
+    color: #9acd32; /* Оттенок зелёного для уровня */
+    margin-bottom: 20px;
+}
